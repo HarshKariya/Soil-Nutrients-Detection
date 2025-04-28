@@ -6,80 +6,129 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Soil Health Monitoring - Nutrient Recommendation</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
 </head>
 
 <body>
     <div class="container">
         <header>
-            <h1>Soil Health Monitoring - Nutrient Recommendation</h1>
-            <p class="tagline">Get customized nutrient recommendations for optimal soil health</p>
+            <div class="logo">
+                <i class="fas fa-seedling"></i>
+            </div>
+            <h1>Soil Health Monitoring</h1>
+            <p class="tagline">Smart recommendations for sustainable agriculture</p>
         </header>
 
-        <div class="input-section">
-            <h2>Input Parameters</h2>
-            <form id="inputForm">
-                <div class="form-group">
-                    <label for="landCover">Land Cover:</label>
-                    <select id="landCover">
-                        <option value="agriculturalLand">Agricultural Land</option>
-                        <option value="forest">Forest</option>
-                        <option value="grassland">Grassland</option>
-                        <option value="desert">Desert</option>
-                    </select>
-                </div>
+        <div class="main-content">
+            <div class="input-section">
+                <h2><i class="fas fa-sliders-h"></i> Input Parameters</h2>
+                <form id="inputForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="landCover">Land Cover</label>
+                            <div class="select-wrapper">
+                                <select id="landCover">
+                                    <option value="agriculturalLand">Agricultural Land</option>
+                                    <option value="forest">Forest</option>
+                                    <option value="grassland">Grassland</option>
+                                    <option value="desert">Desert</option>
+                                </select>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                        </div>
 
-                <div class="form-group">
-                    <label for="soilType">Soil Type:</label>
-                    <select id="soilType">
-                        <option value="loamy">Loamy</option>
-                        <option value="sandy">Sandy</option>
-                        <option value="clay">Clay</option>
-                    </select>
-                </div>
+                        <div class="form-group">
+                            <label for="soilType">Soil Type</label>
+                            <div class="select-wrapper">
+                                <select id="soilType">
+                                    <option value="loamy">Loamy</option>
+                                    <option value="sandy">Sandy</option>
+                                    <option value="clay">Clay</option>
+                                </select>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                        </div>
+                    </div>
 
-                <div class="form-group">
-                    <label for="cropType">Crop Type:</label>
-                    <select id="cropType">
-                        <option value="wheat">Wheat</option>
-                        <option value="rice">Rice</option>
-                        <option value="soybean">Soybean</option>
-                        <option value="barley">Barley</option>
-                        <option value="corn">Corn</option>
-                    </select>
-                </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="cropType">Crop Type</label>
+                            <div class="select-wrapper">
+                                <select id="cropType">
+                                    <option value="wheat">Wheat</option>
+                                    <option value="rice">Rice</option>
+                                    <option value="soybean">Soybean</option>
+                                    <option value="barley">Barley</option>
+                                    <option value="corn">Corn</option>
+                                </select>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                        </div>
 
-                <div class="form-group">
-                    <label for="temperature">Temperature (°C):</label>
-                    <input type="number" id="temperature" step="0.1" placeholder="Enter temperature" required>
-                </div>
+                        <div class="form-group">
+                            <label for="temperature">Temperature (°C)</label>
+                            <div class="input-wrapper">
+                                <input type="number" id="temperature" step="0.1" placeholder="Enter temperature" required>
+                                <i class="fas fa-temperature-high"></i>
+                            </div>
+                        </div>
+                    </div>
 
-                <div class="form-group">
-                    <label for="organicMatter">Organic Matter (%):</label>
-                    <input type="number" id="organicMatter" step="0.1" placeholder="Enter organic matter %" required>
-                </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="organicMatter">Organic Matter (%)</label>
+                            <div class="input-wrapper">
+                                <input type="number" id="organicMatter" step="0.1" placeholder="Enter organic matter %" required>
+                                <i class="fas fa-percentage"></i>
+                            </div>
+                        </div>
+                    </div>
 
-                <button type="button" onclick="calculatePrediction()" class="submit-btn">Get Recommendations</button>
-            </form>
-        </div>
-
-        <div class="results-section">
-            <div class="chart-container">
-                <h2>Nutrient Visualization</h2>
-                <canvas id="nutrientChart" width="400" height="250"></canvas>
-                <div id="predictionResult" class="prediction-result"></div>
+                    <button type="button" onclick="calculatePrediction()" class="submit-btn">
+                        <i class="fas fa-leaf"></i> Generate Recommendations
+                    </button>
+                </form>
             </div>
 
-            <div class="recommendation-container">
-                <h2>Detailed Recommendations</h2>
-                <div class="recommendation" id="recommendationDetails">
-                    <p>Enter your soil parameters above and click "Get Recommendations" to see detailed nutrient advice.
-                    </p>
+            <div class="results-section">
+                <div class="chart-container">
+                    <h2><i class="fas fa-chart-pie"></i> Nutrient Distribution</h2>
+                    <div class="chart-wrapper">
+                        <canvas id="nutrientChart"></canvas>
+                    </div>
+                    <div id="predictionResult" class="prediction-result">
+                        <div class="soil-score">
+                            <span class="score-label">Soil Health Score</span>
+                            <div class="score-meter" id="scoreMeter">
+                                <div class="meter-fill" style="width: 0%"></div>
+                            </div>
+                            <span class="score-value" id="scoreValue">--</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="recommendation-container">
+                    <h2><i class="fas fa-clipboard-list"></i> Detailed Recommendations</h2>
+                    <div class="recommendation" id="recommendationDetails">
+                        <div class="placeholder-content">
+                            <i class="fas fa-arrow-left"></i>
+                            <p>Enter your soil parameters and click "Generate Recommendations" to see detailed nutrient advice.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
 
         <footer>
-            <p>Soil Health Monitoring System &copy; 2025</p>
+            <div class="footer-content">
+                <p><i class="fas fa-seedling"></i> Soil Health Monitoring System &copy; 2025</p>
+                <div class="footer-links">
+                    <a href="#"><i class="fas fa-book"></i> Documentation</a>
+                    <a href="#"><i class="fas fa-question-circle"></i> Help</a>
+                    <a href="#"><i class="fas fa-envelope"></i> Contact</a>
+                </div>
+            </div>
         </footer>
     </div>
 
