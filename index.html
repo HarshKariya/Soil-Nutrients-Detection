@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soil Health Monitoring - Nutrient Recommendation</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>Soil Health Monitoring - Nutrient Recommendation</h1>
+            <p class="tagline">Get customized nutrient recommendations for optimal soil health</p>
+        </header>
+
+        <div class="input-section">
+            <h2>Input Parameters</h2>
+            <form id="inputForm">
+                <div class="form-group">
+                    <label for="landCover">Land Cover:</label>
+                    <select id="landCover">
+                        <option value="agriculturalLand">Agricultural Land</option>
+                        <option value="forest">Forest</option>
+                        <option value="grassland">Grassland</option>
+                        <option value="desert">Desert</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="soilType">Soil Type:</label>
+                    <select id="soilType">
+                        <option value="loamy">Loamy</option>
+                        <option value="sandy">Sandy</option>
+                        <option value="clay">Clay</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="cropType">Crop Type:</label>
+                    <select id="cropType">
+                        <option value="wheat">Wheat</option>
+                        <option value="rice">Rice</option>
+                        <option value="soybean">Soybean</option>
+                        <option value="barley">Barley</option>
+                        <option value="corn">Corn</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="temperature">Temperature (°C):</label>
+                    <input type="number" id="temperature" step="0.1" placeholder="Enter temperature" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="organicMatter">Organic Matter (%):</label>
+                    <input type="number" id="organicMatter" step="0.1" placeholder="Enter organic matter %" required>
+                </div>
+
+                <button type="button" onclick="calculatePrediction()" class="submit-btn">Get Recommendations</button>
+            </form>
+        </div>
+
+        <div class="results-section">
+            <div class="chart-container">
+                <h2>Nutrient Visualization</h2>
+                <canvas id="nutrientChart" width="400" height="250"></canvas>
+                <div id="predictionResult" class="prediction-result"></div>
+            </div>
+
+            <div class="recommendation-container">
+                <h2>Detailed Recommendations</h2>
+                <div class="recommendation" id="recommendationDetails">
+                    <p>Enter your soil parameters above and click "Get Recommendations" to see detailed nutrient advice.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>Soil Health Monitoring System &copy; 2025</p>
+        </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
