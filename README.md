@@ -45,11 +45,6 @@ Receive smart agricultural insights instantly.
 
 🛠️ Tech Stack
 Frontend: HTML, CSS, JavaScript
-
-Backend: Node.js / Express.js (if applicable)
-
-Database: MongoDB or other (if used)
-
 UI Tools: Modern CSS frameworks (Tailwind, Bootstrap, etc.)
 
 📌 Future Improvements
