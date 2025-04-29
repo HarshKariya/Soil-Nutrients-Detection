@@ -4,10 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Soil Health Monitoring - Nutrient Recommendation</title>
+    <title>Soil Health Monitoring - Nutrient Recommendation for Indian Agriculture</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap"
+        rel="stylesheet">
 </head>
 
 <body>
@@ -17,7 +19,7 @@
                 <i class="fas fa-seedling"></i>
             </div>
             <h1>Soil Health Monitoring</h1>
-            <p class="tagline">Smart recommendations for sustainable agriculture</p>
+            <p class="tagline">Smart recommendations for sustainable Indian agriculture</p>
         </header>
 
         <div class="main-content">
@@ -26,13 +28,22 @@
                 <form id="inputForm">
                     <div class="form-row">
                         <div class="form-group">
-                            <label for="landCover">Land Cover</label>
+                            <label for="state">State</label>
                             <div class="select-wrapper">
-                                <select id="landCover">
-                                    <option value="agriculturalLand">Agricultural Land</option>
-                                    <option value="forest">Forest</option>
-                                    <option value="grassland">Grassland</option>
-                                    <option value="desert">Desert</option>
+                                <select id="state" onchange="updateCropOptions()">
+                                    <option value="">Select State</option>
+                                    <option value="punjab">Punjab</option>
+                                    <option value="haryana">Haryana</option>
+                                    <option value="rajasthan">Rajasthan</option>
+                                    <option value="madhyaPradesh">Madhya Pradesh</option>
+                                    <option value="maharashtra">Maharashtra</option>
+                                    <option value="karnataka">Karnataka</option>
+                                    <option value="andhraPradesh">Andhra Pradesh</option>
+                                    <option value="tamilNadu">Tamil Nadu</option>
+                                    <option value="kerala">Kerala</option>
+                                    <option value="westBengal">West Bengal</option>
+                                    <option value="uttarPradesh">Uttar Pradesh</option>
+                                    <option value="gujarat">Gujarat</option>
                                 </select>
                                 <i class="fas fa-chevron-down"></i>
                             </div>
@@ -45,6 +56,9 @@
                                     <option value="loamy">Loamy</option>
                                     <option value="sandy">Sandy</option>
                                     <option value="clay">Clay</option>
+                                    <option value="black">Black Soil</option>
+                                    <option value="red">Red Soil</option>
+                                    <option value="alluvial">Alluvial Soil</option>
                                 </select>
                                 <i class="fas fa-chevron-down"></i>
                             </div>
@@ -56,11 +70,7 @@
                             <label for="cropType">Crop Type</label>
                             <div class="select-wrapper">
                                 <select id="cropType">
-                                    <option value="wheat">Wheat</option>
-                                    <option value="rice">Rice</option>
-                                    <option value="soybean">Soybean</option>
-                                    <option value="barley">Barley</option>
-                                    <option value="corn">Corn</option>
+                                    <option value="">Select Crop</option>
                                 </select>
                                 <i class="fas fa-chevron-down"></i>
                             </div>
@@ -69,7 +79,8 @@
                         <div class="form-group">
                             <label for="temperature">Temperature (°C)</label>
                             <div class="input-wrapper">
-                                <input type="number" id="temperature" step="0.1" placeholder="Enter temperature" required>
+                                <input type="number" id="temperature" step="0.1" placeholder="Enter temperature"
+                                    required>
                                 <i class="fas fa-temperature-high"></i>
                             </div>
                         </div>
@@ -79,8 +90,17 @@
                         <div class="form-group">
                             <label for="organicMatter">Organic Matter (%)</label>
                             <div class="input-wrapper">
-                                <input type="number" id="organicMatter" step="0.1" placeholder="Enter organic matter %" required>
+                                <input type="number" id="organicMatter" step="0.1" placeholder="Enter organic matter %"
+                                    required>
                                 <i class="fas fa-percentage"></i>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="rainfall">Annual Rainfall (mm)</label>
+                            <div class="input-wrapper">
+                                <input type="number" id="rainfall" step="1" placeholder="Enter annual rainfall"
+                                    required>
+                                <i class="fas fa-cloud-rain"></i>
                             </div>
                         </div>
                     </div>
@@ -113,16 +133,24 @@
                     <div class="recommendation" id="recommendationDetails">
                         <div class="placeholder-content">
                             <i class="fas fa-arrow-left"></i>
-                            <p>Enter your soil parameters and click "Generate Recommendations" to see detailed nutrient advice.</p>
+                            <p>Select your state, crop, and soil parameters, then click "Generate Recommendations" to
+                                see detailed nutrient advice.</p>
                         </div>
                     </div>
+                </div>
+            </div>
+
+            <div class="regional-practices">
+                <h2><i class="fas fa-map-marker-alt"></i> Regional Agricultural Practices</h2>
+                <div id="regionalInfo" class="regional-info">
+                    <p>Please select a state to see regional agricultural practices and recommendations.</p>
                 </div>
             </div>
         </div>
 
         <footer>
             <div class="footer-content">
-                <p><i class="fas fa-seedling"></i> Soil Health Monitoring System &copy; 2025</p>
+                <p><i class="fas fa-seedling"></i> Indian Agriculture Soil Health Monitoring System &copy; 2025</p>
                 <div class="footer-links">
                     <a href="#"><i class="fas fa-book"></i> Documentation</a>
                     <a href="#"><i class="fas fa-question-circle"></i> Help</a>

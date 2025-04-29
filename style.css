@@ -1,4 +1,4 @@
-/* Enhanced Base Styles */
+/* Enhanced Base Styles for Indian Agriculture Soil Health Monitoring System */
 :root {
     --primary-color: #3a9e5f;
     --primary-dark: #2a7d48;
@@ -13,6 +13,8 @@
     --input-bg: #ffffff;
     --gradient: linear-gradient(135deg, #3a9e5f 0%, #4caf50 100%);
     --chart-colors: #3a9e5f, #6abf69, #8dd290, #beebaa, #e6f3f2;
+    --india-color: #ff9933;
+    --india-green: #138808;
 }
 
 * {
@@ -41,11 +43,11 @@ body {
     overflow: hidden;
 }
 
-/* Header */
+/* Header with Indian theme colors */
 header {
     text-align: center;
     padding: 40px 20px;
-    background: var(--gradient);
+    background: linear-gradient(135deg, var(--india-color) 0%, var(--primary-color) 50%, var(--india-green) 100%);
     color: white;
     position: relative;
 }
@@ -65,9 +67,17 @@ header h1 {
 }
 
 @keyframes pulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.05); }
-    100% { transform: scale(1); }
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+
+    100% {
+        transform: scale(1);
+    }
 }
 
 .tagline {
@@ -127,11 +137,13 @@ form label {
     font-size: 0.95rem;
 }
 
-.select-wrapper, .input-wrapper {
+.select-wrapper,
+.input-wrapper {
     position: relative;
 }
 
-.select-wrapper select, .input-wrapper input {
+.select-wrapper select,
+.input-wrapper input {
     width: 100%;
     padding: 12px 15px;
     font-size: 14px;
@@ -143,13 +155,15 @@ form label {
     appearance: none;
 }
 
-.select-wrapper select:focus, .input-wrapper input:focus {
+.select-wrapper select:focus,
+.input-wrapper input:focus {
     border-color: var(--primary-color);
     box-shadow: 0 0 0 2px rgba(58, 158, 95, 0.2);
     outline: none;
 }
 
-.select-wrapper i, .input-wrapper i {
+.select-wrapper i,
+.input-wrapper i {
     position: absolute;
     right: 15px;
     top: 50%;
@@ -195,7 +209,9 @@ form label {
     gap: 30px;
 }
 
-.chart-container, .recommendation-container {
+.chart-container,
+.recommendation-container,
+.regional-practices {
     background-color: var(--accent-color);
     padding: 25px;
     border-radius: var(--border-radius);
@@ -204,7 +220,9 @@ form label {
     border: 1px solid var(--border-color);
 }
 
-.chart-container h2, .recommendation-container h2 {
+.chart-container h2,
+.recommendation-container h2,
+.regional-practices h2 {
     font-family: 'Montserrat', sans-serif;
     color: var(--primary-color);
     margin-bottom: 20px;
@@ -234,6 +252,7 @@ form label {
     border: 1px solid var(--border-color);
 }
 
+/* Soil health score section */
 .soil-score {
     text-align: center;
 }
@@ -267,7 +286,8 @@ form label {
     color: var(--primary-color);
 }
 
-.recommendation {
+.recommendation,
+.regional-info {
     background-color: #fff;
     padding: 20px;
     border-radius: 8px;
@@ -292,24 +312,93 @@ form label {
     opacity: 0.7;
 }
 
-.recommendation ul {
+/* Regional practices section */
+.regional-practices {
+    margin-top: 10px;
+}
+
+.regional-info {
+    min-height: 200px;
+}
+
+.regional-info h3 {
+    color: var(--primary-color);
+    margin-bottom: 15px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.2rem;
+}
+
+.regional-info p {
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+.region-crop-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.crop-tag {
+    background: var(--primary-light);
+    color: var(--primary-dark);
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.crop-tag i {
+    font-size: 0.8rem;
+}
+
+/* List styles for recommendations */
+.recommendation ul,
+.regional-info ul {
     list-style-type: none;
     padding-left: 10px;
 }
 
-.recommendation li {
+.recommendation li,
+.regional-info li {
     margin-bottom: 15px;
     padding-left: 30px;
     position: relative;
 }
 
-.recommendation li:before {
+.recommendation li:before,
+.regional-info li:before {
     content: "•";
     color: var(--primary-color);
     font-weight: bold;
     position: absolute;
     left: 10px;
     font-size: 1.5rem;
+}
+
+/* Special styling for schedule list */
+.schedule-list li {
+    background-color: var(--primary-light);
+    padding: 10px 10px 10px 35px;
+    border-radius: 6px;
+    margin-bottom: 10px;
+}
+
+.nutrient-list li {
+    border-left: 3px solid var(--primary-color);
+    padding-left: 15px;
+    margin-bottom: 20px;
+}
+
+.recommendation-details {
+    color: var(--text-light);
+    font-size: 0.9rem;
+    margin-top: 5px;
 }
 
 /* Footer */
@@ -350,27 +439,27 @@ footer {
         flex-direction: column;
         gap: 0;
     }
-    
+
     .results-section {
         grid-template-columns: 1fr;
     }
-    
+
     .container {
         width: 95%;
     }
-    
+
     .main-content {
         padding: 20px;
     }
-    
+
     header {
         padding: 30px 20px;
     }
-    
+
     header h1 {
         font-size: 2rem;
     }
-    
+
     .footer-content {
         flex-direction: column;
         gap: 15px;
@@ -379,11 +468,20 @@ footer {
 }
 
 @media (max-width: 600px) {
-    .input-section, .chart-container, .recommendation-container {
+
+    .input-section,
+    .chart-container,
+    .recommendation-container,
+    .regional-practices {
         padding: 15px;
     }
-    
+
     .chart-wrapper {
         height: 200px;
+    }
+
+    .region-crop-list {
+        flex-direction: column;
+        gap: 5px;
     }
 }
