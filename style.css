@@ -23,7 +23,7 @@
 }
 
 .video-banner video {
-    width: 320px;
+    width: 250px;
     max-width: 400px;
     /* Smaller max size */
     height: auto;

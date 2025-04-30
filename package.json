@@ -1,0 +1,23 @@
+{
+  "name": "soilwebsite",
+  "version": "1.0.0",
+  "description": "🌱 Soil Health Monitoring\r A smart recommendation system designed to assist Indian farmers by providing sustainable crop and soil management suggestions based on real-time input parameters like region, soil type, crop, temperature, organic matter, and rainfall.",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HarshKariya/Soil-Nutrients-Detection.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HarshKariya/Soil-Nutrients-Detection/issues"
+  },
+  "homepage": "https://github.com/HarshKariya/Soil-Nutrients-Detection#readme",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
